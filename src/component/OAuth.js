@@ -5,6 +5,7 @@ import axios from "axios";
 function Oauth() {
   const navigate = useNavigate();
   const code = new URL(window.location.href).searchParams.get("code");
+
   useEffect(() => {
     (async () => {
       try {
@@ -12,7 +13,8 @@ function Oauth() {
         const res = await axios.get(
           `http://localhost:8080/oauth/token?code=${code}`
         );
-        //const token = res.headers.authorization;
+        const token = res.headers.authorization;
+        window.localStorage.setItem("token", token);
         console.log(res);
         navigate("/");
       } catch (e) {
