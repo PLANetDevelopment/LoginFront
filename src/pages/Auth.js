@@ -9,7 +9,6 @@ function Auth(SpecificComponent, option) {
 
     if (option) {
       if (!token) {
-        alert("로그인하세요");
         navigate("/login");
       }
     }
