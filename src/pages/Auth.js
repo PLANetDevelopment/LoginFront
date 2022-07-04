@@ -5,14 +5,14 @@ function Auth(SpecificComponent, option) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = window.localStorage.getItem("token");
+    const userId = window.localStorage.getItem("userId");
 
     if (option) {
-      if (!token) {
+      if (!userId) {
         navigate("/login");
       }
     }
-  }, []);
+  });
   return <SpecificComponent />;
 }
 
